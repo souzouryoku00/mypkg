@@ -22,9 +22,11 @@ colcon build --symlink-install
 #### 2. 実行方法
 
 **基本的な実行（デフォルト設定）**
+
 launchファイルを使用すると、送信側と受信側を同時に起動します。デフォルトでは「足し算 (+ 5)」を行います。
 
 ```
+# 環境設定の読み込み、端末を新しく開いた際に初回のみ必須
 source ~/ros2_ws/install/setup.bash
 ros2 launch mypkg talk_listen.launch.py
 ```
@@ -33,5 +35,8 @@ ros2 launch mypkg talk_listen.launch.py
 [talker]: Publish: "0 + 5"
 [listener]: Listen: "0 + 5" -> Answer: 5
 ```
+終了するには Ctrl+C を入力してください。
 
 **計算ルールの変更（パラメータ使用）**
+
+
