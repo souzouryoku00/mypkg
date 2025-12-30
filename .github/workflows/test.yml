@@ -13,4 +13,4 @@ jobs:
           cp -r . ~/ros2_ws/src/mypkg/
           cd ~/ros2_ws
         
-          bash src/mypkg/test.bash
+          bash src/mypkg/test/test.bash
