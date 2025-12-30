@@ -10,10 +10,28 @@ ROS2を用いて数値と演算子を動的に設定し、計算式を送信・�
 
 #### 1. リポジトリをクローン・ビルド
 
-`ros2_ws` などのワークスペースの `src` ディレクトリ下で行います。
+以下のコマンドでソースコードをクローン、ビルドしてください
 
-```bash
+```
 cd ~/ros2_ws/src
 git clone [https://github.com/souzouryoku00/mypkg.git](https://github.com/souzouryoku00/mypkg.git)
 cd ~/ros2_ws
 colcon build --symlink-install
+```
+
+#### 2. 実行方法
+
+**基本的な実行（デフォルト設定）**
+launchファイルを使用すると、送信側と受信側を同時に起動します。デフォルトでは「足し算 (+ 5)」を行います。
+
+```
+source ~/ros2_ws/install/setup.bash
+ros2 launch mypkg talk_listen.launch.py
+```
+実行結果:
+```
+[talker]: Publish: "0 + 5"
+[listener]: Listen: "0 + 5" -> Answer: 5
+```
+
+**計算ルールの変更（パラメータ使用）**
