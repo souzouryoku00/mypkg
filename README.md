@@ -5,3 +5,15 @@ ROS2を用いて数値と演算子を動的に設定し、計算式を送信・�
 ### 概要
 * **Talker**: カウント変数とパラメータ（演算子・数値）を組み合わせて計算式（例: `"0 + 5"`）を生成し送信します。
 * **Listener**: 受信した計算式を Python の `eval()` 関数で実行し、結果を出力します。
+
+### 使い方
+
+#### 1. リポジトリをクローン・ビルド
+
+`ros2_ws` などのワークスペースの `src` ディレクトリ下で行います。
+
+```bash
+cd ~/ros2_ws/src
+git clone [https://github.com/souzouryoku00/mypkg.git](https://github.com/souzouryoku00/mypkg.git)
+cd ~/ros2_ws
+colcon build --symlink-install
