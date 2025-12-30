@@ -10,12 +10,19 @@ class Talker(Node):
     def __init__(self):
         super().__init__('talker')
         self.pub = self.create_publisher(String, 'topic', 10)
-        self.create_timer(1.0, self.cb)
         self.n = 0
+        
+        self.declare_parameter('symbol', '+') # 演算子（デフォルトは足し算）
+        self.declare_parameter('num', 5)      # 数字（デフォルトは5）
+
+        self.create_timer(1.0, self.cb)
 
     def cb(self):
-        # 計算式を作成 (例: "0 + 5", "1 + 5"...)
-        expression = f"{self.n} + 5"
+        sym = self.get_parameter('symbol').value
+        val = self.get_parameter('num').value
+
+        expression = f"{self.n} {sym} {val}"
+        
         msg = String()
         msg.data = expression
         self.pub.publish(msg)
