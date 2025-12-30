@@ -26,7 +26,7 @@ colcon build --symlink-install
 
 送信側（Talker）と受信側（Listener）を1つのコマンドでまとめて起動します。
 
-**基本的な実行（デフォルト設定）**
+* **基本的な実行（デフォルト設定）**
 
 launchファイルを使用すると、送信側と受信側を同時に起動します。デフォルトでは「足し算 (+ 5)」を行います。
 
@@ -43,7 +43,29 @@ ros2 launch mypkg talk_listen.launch.py
 ```
 終了するには Ctrl+C を入力してください。
 
-**計算ルールの変更（パラメータ使用）**
+* **計算ルールの変更（パラメータ使用）**
 
 コマンドの引数で演算子 (symbol) や数値 (num) を指定できます。
 
+掛け算の例 (* 10)
+```
+ros2 launch mypkg talk_listen.launch.py symbol:="'*'" num:=10
+```
+実行結果:
+```
+[talker]: Publish: "0 * 10"
+[listener]: Listen: "0 * 10" -> Answer: 0
+[talker]: Publish: "1 * 10"
+[listener]: Listen: "1 * 10" -> Answer: 10
+```
+
+**方法2: 個別の端末で実行する**
+
+ログを個別に確認したい場合や、デバッグを行いたい場合は、端末を2つ開いて実行します。
+
+* **手順①: 受信側（Listener）の起動**
+1つ目の端末で実行します。
+```
+source ~/ros2_ws/install/setup.bash
+ros2 run mypkg listener
+```
