@@ -21,7 +21,7 @@ cat /tmp/mypkg.log | grep 'Publish:'
 cat /tmp/mypkg.log | grep 'Listen:'
 [ "$?" = "0" ] || ng "$LINENO"
 
-cat /tmp/mypkg.log | grep 'Double:'
+cat /tmp/mypkg.log | grep 'Answer:'
 [ "$?" = "0" ] || ng "$LINENO"
 
 [ "$res" = 0 ] && echo "OK"
