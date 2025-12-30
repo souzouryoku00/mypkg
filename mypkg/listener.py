@@ -4,35 +4,30 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16
+from std_msgs.msg import String
 
 class Listener(Node):
     def __init__(self):
         super().__init__('listener')
-        # 'count_up' というトピックを購読
-        self.subscription = self.create_subscription(
-            Int16,
-            'count_up',
-            self.cb,
-            10
-        )
+        self.pub = self.create_subscription(String, 'topic', self.cb, 10)
 
     def cb(self, msg):
-        # 受け取った数字を2倍にする計算
-        result = msg.data * 2
-        # 結果をログに出力
-        self.get_logger().info(f'Listen: {msg.data} -> Double: {result}')
+        expression = msg.data
+        try:
+            answer = eval(expression)
+            self.get_logger().info(f'Listen: "{expression}" -> Answer: {answer}')
+        except Exception as e:
+            self.get_logger().error(f'Calculation Failed: {e}')
 
-def main(args=None):
-    rclpy.init(args=args)
+def main():
+    rclpy.init()
     node = Listener()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         pass
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
+    node.destroy_node()
+    rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
