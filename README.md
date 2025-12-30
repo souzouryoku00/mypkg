@@ -64,8 +64,30 @@ ros2 launch mypkg talk_listen.launch.py symbol:="'*'" num:=10
 ログを個別に確認したい場合や、デバッグを行いたい場合は、端末を2つ開いて実行します。
 
 * **手順①: 受信側（Listener）の起動**
+
 1つ目の端末で実行します。
 ```
 source ~/ros2_ws/install/setup.bash
 ros2 run mypkg listener
 ```
+実行結果: (Talkerが動くまで待機します)
+```
+[listener]: Listen: "0 * 10" -> Answer: 0
+[listener]: Listen: "1 * 10" -> Answer: 10
+```
+* **手順②: 送信側（Talker）の起動**
+
+2つ目の端末で実行します。ここでパラメータを指定します。
+掛け算の例 (* 10)
+```
+source ~/ros2_ws/install/setup.bash
+ros2 run mypkg talker --ros-args -p symbol:="'*'" -p num:=10
+```
+実行結果:
+```
+[talker]: Publish: "0 * 10"
+[talker]: Publish: "1 * 10"
+```
+
+#### 3. 対応している演算
+
