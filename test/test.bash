@@ -9,7 +9,12 @@ ng () {
 
 res=0
 
-source /opt/ros/jazzy/setup.bash
+if [ -f /opt/ros/humble/setup.bash ]; then
+    source /opt/ros/humble/setup.bash
+elif [ -f /opt/ros/jazzy/setup.bash ]; then
+    source /opt/ros/jazzy/setup.bash
+fi
+
 colcon build
 source install/setup.bash
 
