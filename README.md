@@ -106,7 +106,7 @@ Python の eval() 関数で解釈可能な演算子であれば動作します�
 ### 必要なソフトウェア
 
 * Python
-* ROS2
+* ROS2(Jazzy Jalisco)
 
 ### テスト環境
 
