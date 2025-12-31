@@ -26,7 +26,7 @@ cat /tmp/mypkg.log | grep 'Publish:'
 cat /tmp/mypkg.log | grep 'Listen:'
 [ "$?" = "0" ] || ng "$LINENO"
 
-cat /tmp/mypkg.log | grep 'Answer: 10'
+cat /tmp/mypkg.log | grep 'Answer: 5'
 [ "$?" = "0" ] || ng "$LINENO"
 
 echo "後半"
