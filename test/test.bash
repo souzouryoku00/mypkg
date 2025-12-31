@@ -18,7 +18,7 @@ fi
 colcon build
 source install/setup.bash
 
-timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log 2>&1
+timeout 10 env PYTHONUNBUFFERED=1 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log 2>&1
 
 cat /tmp/mypkg.log | grep 'Publish:'
 [ "$?" = "0" ] || ng "$LINENO"
