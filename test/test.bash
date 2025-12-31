@@ -9,7 +9,7 @@ ng () {
 
 res=0
 
-source /opt/ros/humble/setup.bash
+source /opt/ros/jazzy/setup.bash
 colcon build
 source install/setup.bash
 
@@ -21,7 +21,7 @@ cat /tmp/mypkg.log | grep 'Publish:'
 cat /tmp/mypkg.log | grep 'Listen:'
 [ "$?" = "0" ] || ng "$LINENO"
 
-cat /tmp/mypkg.log | grep 'Answer:'
+cat /tmp/mypkg.log | grep 'Answer: 10'
 [ "$?" = "0" ] || ng "$LINENO"
 
 echo "後半"
