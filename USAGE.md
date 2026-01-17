@@ -12,7 +12,6 @@
 launchファイルを使用すると、送信側と受信側を同時に起動します。デフォルトでは「足し算 (+ 5)」を行います。
 
 ```
-source ~/ros2_ws/install/setup.bash
 ros2 launch mypkg talk_listen.launch.py
 ```
 実行結果:
