@@ -2,7 +2,7 @@
 
 `mypkg` の詳細な実行方法やパラメータ設定について説明します。
 
-このパッケージは、Launchファイルで一括起動する方法と、個別の端末で別々に起動する方法のどちらでも動作します。※ どちらの方法でも、新しい端末を開たびに `source ~/ros2_ws/install/setup.bash` が必要です。
+このパッケージは、Launchファイルで一括起動する方法と、個別の端末で別々に起動する方法のどちらでも動作します。
 **方法1:Launchファイルを使用する**
 
 送信側（Talker）と受信側（Listener）を1つのコマンドでまとめて起動します。
@@ -48,7 +48,6 @@ ros2 launch mypkg talk_listen.launch.py symbol:="'*'" num:=10
 
 1つ目の端末で実行します。
 ```
-source ~/ros2_ws/install/setup.bash
 ros2 run mypkg listener
 ```
 実行結果: (Talkerが動くまで待機します)
@@ -61,7 +60,6 @@ ros2 run mypkg listener
 2つ目の端末で実行します。ここでパラメータを指定します。
 掛け算の例 (* 10)
 ```
-source ~/ros2_ws/install/setup.bash
 ros2 run mypkg talker --ros-args -p symbol:="'*'" -p num:=10
 ```
 実行結果:
