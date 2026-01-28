@@ -31,11 +31,11 @@ ros2 launch mypkg talk_listen.launch.py
 ### 必要なソフトウェア
 
 * Python
-* ROS2 Jazzy Jalisco
+* ROS2 Humble
 
 ### テスト環境
 
-* Ubuntu 24.04 LTS
+* Ubuntu 22.04
 
 ### ライセンス
 
