@@ -31,7 +31,7 @@ ros2 launch mypkg talk_listen.launch.py
 ### 必要なソフトウェア
 
 * Python
-* ROS2 Humble
+* ROS2 Humble Hawksbill
 
 ### テスト環境
 
