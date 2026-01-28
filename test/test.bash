@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xv
 # SPDX-FileCopyrightText: 2025 souzouryoku00
 # SPDX-License-Identifier: BSD-3-Clause
 
