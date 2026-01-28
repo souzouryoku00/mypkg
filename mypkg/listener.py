@@ -9,7 +9,7 @@ from std_msgs.msg import String
 class Listener(Node):
     def __init__(self):
         super().__init__('listener')
-        self.pub = self.create_subscription(String, 'topic', self.cb, 10)
+        self.pub = self.create_subscription(String, 'formula_cmd', self.cb, 10)
 
     def cb(self, msg):
         expression = msg.data
